@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Academic and Professional Portfolio of Vladyslav Honcharuk - Researcher & Software Engineer">
+    <title>Vladyslav Honcharuk - Research & Engineering Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">&lt;VladyslavHoncharuk/&gt;</a>
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="#education" class="nav-link">Education</a></li>
+                <li class="nav-item"><a href="#experience" class="nav-link">Work</a></li>
+                <li class="nav-item"><a href="#publications" class="nav-link">Publications</a></li>
+                <li class="nav-item"><a href="#research" class="nav-link">Research</a></li>
+                <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
+            </ul>
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                <svg class="sun-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="5"/>
+                    <line x1="12" y1="1" x2="12" y2="3"/>
+                    <line x1="12" y1="21" x2="12" y2="23"/>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                    <line x1="1" y1="12" x2="3" y2="12"/>
+                    <line x1="21" y1="12" x2="23" y2="12"/>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                </svg>
+                <svg class="moon-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                </svg>
+            </button>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-container">
+            <h1 class="hero-title fade-in">Hi, I'm <span class="gradient-text">Vladyslav Honcharuk</span></h1>
+            <p class="hero-subtitle fade-in">Researcher in Neurorobotics & Bioinformatics | Data Science Intern at xForest Therapeutics</p>
+            <p class="hero-description fade-in">I enjoy solving complex problems with creative solutions (and a cup of coffee)</p>
+            <div class="hero-buttons fade-in">
+                <a href="#publications" class="btn btn-primary">View Publications</a>
+                <a href="#research" class="btn btn-secondary">View Research Interesets</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about section" id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <div class="image-placeholder">
+                        <img src="https://github.com/vladyslav-honcharuk.png" alt="Vladyslav Honcharuk" width="250" height="250">
+                    </div>
+                </div>
+                <div class="about-text">
+                    <p>Hello! I'm Vlad, a researcher passionate about applying computational methods to solve complex problems. Based in Kyoto, Japan, I focus on two main research areas: spatial transcriptomics and eye-tracking data analysis.</p>
+                    <p>As the lead developer of <a href="https://DeepSpaceDB.com" target="_blank" style="color: var(--primary-color); text-decoration: none; font-weight: 600;">DeepSpaceDB</a>, I've built an easy-to-use interactive spatial transcriptomics database. Additionally, my work in eye-tracking includes developing machine learning systems for schizophrenia detection and analyzing human attention patterns in real-world settings.</p>
+                    <p>When I'm not analyzing data, you'll find me weightlifting, gaming, reading a book or hiking mountains.</p>
+                    <div class="about-contact-links">
+                        <a href="mailto:vladyslav.s.honcharuk@gmail.com" class="about-contact-icon" aria-label="Email">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                <polyline points="22,6 12,13 2,6"/>
+                            </svg>
+                        </a>
+                        <a href="https://github.com/vladyslav-honcharuk" class="about-contact-icon" target="_blank" aria-label="GitHub">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                        </a>
+                        <a href="https://scholar.google.com/citations?user=QVBFxZAAAAAJ&hl=en" class="about-contact-icon" target="_blank" aria-label="Google Scholar">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l4.838 3.94A8 8 0 0 1 12 9a8 8 0 0 1 7.162 4.44L24 9.5z"/>
+                            </svg>
+                        </a>
+                        <a href="https://linkedin.com/in/vladyslav-honcharuk" class="about-contact-icon" target="_blank" aria-label="LinkedIn">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="education section" id="education">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+            <div class="timeline">
+                <!-- Education Item 1 -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">Oct 2025 - Apr 2027</div>
+                        <h3 class="timeline-title">Research Student</h3>
+                        <p class="timeline-subtitle"><a href="https://neurorobotics.med.kyoto-u.ac.jp/" target="_blank" style="color: var(--primary-color); text-decoration: none;">Kyoto University, Developmental Neurorobotics (Veale) Lab</a> | Kyoto, Japan</p>
+                        <p class="timeline-description">Graduate School of Medicine, Department of Neuroscience</p>
+                        <p class="timeline-description">Neuroscience research in eye-tracking and behavioral data analysis</p>
+                        <p class="timeline-description">MEXT Scholarship recipient</p>
+                    </div>
+                </div>
+
+                <!-- Education Item 2 -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">Sep 2020 - Jun 2025</div>
+                        <h3 class="timeline-title">Bachelor's Degree, Computer Science</h3>
+                        <p class="timeline-subtitle">National Technical University of Ukraine 'Kyiv Polytechnic Institute'</p>
+                        <p class="timeline-description">Specialization: Computer Technologies in Biology and Medicine</p>
+                        <p class="timeline-description">Thesis: Information System for the Diagnosis of Schizophrenia Using Eye-Tracking Data</p>
+                        <p class="timeline-description">Grade: 93/100</p>
+                    </div>
+                </div>
+
+                <!-- Education Item 3 -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">Apr 2022 - Sep 2024</div>
+                        <h3 class="timeline-title">Exchange Programs</h3>
+                        <p class="timeline-subtitle">Kyoto University | Aug 2022 - Sep 2024</p>
+                        <p class="timeline-description">Courses: Fundamentals of Artificial Intelligence, Processing and Analyzing Data, Information Networks, Statistics</p>
+                        <p class="timeline-subtitle">Akita University | Apr 2022 - Jul 2022</p>
+                        <p class="timeline-description">Course: Introduction to Machine Learning</p>
+                        <p class="timeline-subtitle">Shibaura Institute of Technology | Apr 2022 - Jul 2022</p>
+                        <p class="timeline-description">Courses: Statistical Signal Processing, Bionic and Biomimetic System Engineering, International Development Engineering</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Work Experience Section -->
+    <section class="experience section" id="experience">
+        <div class="container">
+            <h2 class="section-title">Work Experience</h2>
+            <div class="timeline">
+                <!-- Experience Item 1 -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">Oct 2024 - Present</div>
+                        <h3 class="timeline-title">Data Science Intern</h3>
+                        <p class="timeline-subtitle"><a href="https://www.xforestx.com/" target="_blank" style="color: var(--primary-color); text-decoration: none;">xFOREST Therapeutics</a> | Kyoto, Japan</p>
+                        <ul class="timeline-list">
+                            <li>Using RNA 3D strucuture prediction software for affinity prediction analysis</li>
+                            <li>Analyzing RNA-sequencing data</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Experience Item 2 -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">Jan 2024 - Present</div>
+                        <h3 class="timeline-title">Technical Assistant</h3>
+                        <p class="timeline-subtitle"><a href="https://genomics.virus.kyoto-u.ac.jp/alexisvdb/index.html" target="_blank" style="color: var(--primary-color); text-decoration: none;">Kyoto University, Bioinformatics Lab</a> | Kyoto, Japan</p>
+                        <ul class="timeline-list">
+                            <li>Developing a website for ongoing research in spatial transcriptomics. Orchestrating and analyzing 10x Genomics Visium and Xenium spatial data</li>
+                            <li>Using NLP for automated sample metadata extraction from web, using Computer Vision models for H&E image data analysis</li>
+                            <li>Contributing to the manuscript writing and presenting research at scientific conferences</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Experience Item 3 -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">Oct 2023 - Present</div>
+                        <h3 class="timeline-title">Research Assistant</h3>
+                        <p class="timeline-subtitle"><a href="https://neurorobotics.med.kyoto-u.ac.jp/" target="_blank" style="color: var(--primary-color); text-decoration: none;">Kyoto University, Developmental Neurorobotics (Veale) Lab</a> | Kyoto, Japan</p>
+                        <ul class="timeline-list">
+                            <li>Analyzing allocentric and egocentric eye-tracking data</li>
+                            <li>Applying machine learning and data analysis techniques to eye-tracking data</li>
+                            <li>Presenting my research at scientific conferences through poster presentations</li>
+                            <li><strong>Teaching:</strong> DP2025: Introduction to Shell-Based Data Processing (Fall 2025) - Teaching Assistant, delivered 3 lectures on Basic Bash and Python</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications Section -->
+    <section class="publications section" id="publications">
+        <div class="container">
+            <h2 class="section-title">Publications</h2>
+
+            <!-- Papers -->
+            <h3 class="cert-category-title">Papers</h3>
+            <div class="publications-list">
+                <!-- Publication 1 -->
+                <div class="publication-card">
+                    <div class="publication-year">2025</div>
+                    <div class="publication-content">
+                        <h3 class="publication-title">DeepSpaceDB: a spatial transcriptomics atlas for interactive in-depth analysis of tissues and tissue microenvironments</h3>
+                        <p class="publication-authors"><strong>Vladyslav Honcharuk</strong>, Afeefa Zainab, Yoshiya Horimoto, Keiko Takemoto, Diego Diez, Shinpei Kawaoka, Alexis Vandenbon</p>
+                        <p class="publication-venue"><em>Nucleic Acids Research</em>, 2025</p>
+                        <div class="publication-links">
+                            <a href="https://academic.oup.com/nar/advance-article/doi/10.1093/nar/gkaf1117/7910721" class="pub-link" target="_blank">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                    <polyline points="14 2 14 8 20 8"/>
+                                    <line x1="16" y1="13" x2="8" y2="13"/>
+                                    <line x1="16" y1="17" x2="8" y2="17"/>
+                                    <polyline points="10 9 9 9 8 9"/>
+                                </svg>
+                                Paper
+                            </a>
+                            <a href="https://www.deepspacedb.com" class="pub-link" target="_blank">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <line x1="2" y1="12" x2="22" y2="12"/>
+                                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                                </svg>
+                                Website
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Posters -->
+            <h3 class="cert-category-title">Poster Presentations</h3>
+            <div class="publications-list">
+                <!-- Poster 1 -->
+                <div class="publication-card">
+                    <div class="publication-year">2025</div>
+                    <div class="publication-content">
+                        <h3 class="publication-title">DeepSpaceDB 2.0: Benchmarking and standardization of subcellular spatial transcriptomics</h3>
+                        <p class="publication-authors"><strong>Vladyslav Honcharuk</strong>, Alexis Vandenbon</p>
+                        <p class="publication-venue"><em>NGS EXPO (Nara, Japan)</em>, 2025</p>
+                        <p class="publication-venue"><em>LiMe retreat (Awaji, Japan)</em>, 2025</p>
+                        <div class="publication-links">
+                            <a href="https://drive.google.com/file/d/1k6LthcthEvx-NiEj18ISa0bRcNisPaAr/view?usp=sharing" class="pub-link" target="_blank">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                    <polyline points="14 2 14 8 20 8"/>
+                                    <line x1="16" y1="13" x2="8" y2="13"/>
+                                    <line x1="16" y1="17" x2="8" y2="17"/>
+                                    <polyline points="10 9 9 9 8 9"/>
+                                </svg>
+                                Poster
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Poster 2 -->
+                <div class="publication-card">
+                    <div class="publication-year">2025</div>
+                    <div class="publication-content">
+                        <h3 class="publication-title">Automated Schizophrenia Detection Through Video-Based Eye Movement Feature Analysis <em>(My Bachelor's thesis project)</em></h3>
+                        <p class="publication-authors"><strong>Vladyslav Honcharuk</strong>, Richard Veale Takahiko Kawashima, Tadashi Isa, Jun Miyata</p>
+                        <p class="publication-venue"><em>6th research area meeting of the unified theory (Sapporo, Japan)</em>, 2025</p>
+                        <p class="publication-venue"><em>JSNS (Niigata, Japan)</em>, 2025</p>
+                        <div class="publication-links">
+                            <a href="https://drive.google.com/file/d/1EIeJkx8aq-3INrzepC--QOS3VwL2BG4s/view?usp=sharing" class="pub-link" target="_blank">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                    <polyline points="14 2 14 8 20 8"/>
+                                    <line x1="16" y1="13" x2="8" y2="13"/>
+                                    <line x1="16" y1="17" x2="8" y2="17"/>
+                                    <polyline points="10 9 9 9 8 9"/>
+                                </svg>
+                                Poster
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Poster 3 -->
+                <div class="publication-card">
+                    <div class="publication-year">2024</div>
+                    <div class="publication-content">
+                        <h3 class="publication-title">Evaluating a Deep Saliency Model on real-world egocentric data</h3>
+                        <p class="publication-authors"><strong>Vladyslav Honcharuk</strong>, Tadashi Isa, Richard Veale</p>
+                        <p class="publication-venue"><em>JSNS (Fukuoka, Japan)</em>, 2024</p>
+                        <div class="publication-links">
+                            <a href="https://drive.google.com/file/d/1NZHhLj6YJXKvaOgFnnRgTopSmTzRUZiH/view?usp=sharing" class="pub-link" target="_blank">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                    <polyline points="14 2 14 8 20 8"/>
+                                    <line x1="16" y1="13" x2="8" y2="13"/>
+                                    <line x1="16" y1="17" x2="8" y2="17"/>
+                                    <polyline points="10 9 9 9 8 9"/>
+                                </svg>
+                                Poster
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Poster 4 -->
+                <div class="publication-card">
+                    <div class="publication-year">2024</div>
+                    <div class="publication-content">
+                        <h3 class="publication-title">Guided tour of DeepSpaceDB, a spatial transcriptomics database</h3>
+                        <p class="publication-authors"><strong>Vladyslav Honcharuk</strong>, Alexis Vandenbon</p>
+                        <p class="publication-venue"><em>NGS EXPO (Osaka, Japan)</em>, 2024</p>
+                        <p class="publication-venue"><em>LiMe retreat (Otsu, Japan)</em>, 2024</p>
+                        <div class="publication-links">
+                            <a href="https://drive.google.com/file/d/1SwTI7gFp7qq1W7ofWy_B3ZxdVxooKT9U/view?usp=sharing" class="pub-link" target="_blank">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                    <polyline points="14 2 14 8 20 8"/>
+                                    <line x1="16" y1="13" x2="8" y2="13"/>
+                                    <line x1="16" y1="17" x2="8" y2="17"/>
+                                    <polyline points="10 9 9 9 8 9"/>
+                                </svg>
+                                Poster
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Section -->
+    <section class="research section" id="research">
+        <div class="container">
+            <h2 class="section-title">Research Interests</h2>
+            <p class="section-subtitle">Highlights of ongoing work and key areas of focus.</p>
+            <div class="projects-grid">
+                <!-- Research Card 1 -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+                            </svg>
+                        </div>
+                        <h3 class="project-title">Spatial Transcriptomics</h3>
+                    </div>
+                    <p class="project-description">Development of DeepSpaceDB, a spatial transcriptomics database for interactive analysis of tissues and tissue microenvironments. Analysis of single-cell and spot resolution data.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Bioinformatics</span>
+                        <span class="tech-tag">Data Analysis</span>
+                        <span class="tech-tag">Web Development</span>
+                    </div>
+                </div>
+
+                <!-- Research Card 2 -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+                            </svg>
+                        </div>
+                        <h3 class="project-title">Eye-Tracking Data Analysis</h3>
+                    </div>
+                    <p class="project-description">Detection of schizophrenia through eye-tracking using dynamic stimulus, analysis of egocentric eye-tracking data to understand human attention patterns and cognitive processes.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Machine Learning</span>
+                        <span class="tech-tag">Computer Vision</span>
+                        <span class="tech-tag">Signal Processing</span>
+                        <span class="tech-tag">Python</span>
+                    </div>
+                </div>
+
+                <!-- Research Card 3 -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+                            </svg>
+                        </div>
+                        <h3 class="project-title">Reinforcement Learning</h3>
+                    </div>
+                    <p class="project-description">Modeling of risk preferences in gambling tasks using Machine Learning. Understanding decision-making processes and behavioral patterns through computational models.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Reinforcement Learning</span>
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Statistical Modeling</span>
+                        <span class="tech-tag">Behavioral Analysis</span>
+                    </div>
+                </div>
+
+                <!-- Research Card 4 -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+                            </svg>
+                        </div>
+                        <h3 class="project-title">Bioinformatics</h3>
+                    </div>
+                    <p class="project-description">RNA sequence and 3D structure analysis for drug development. Computational analysis of biological data to support therapeutic development and molecular understanding.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Bioinformatics</span>
+                        <span class="tech-tag">RNA Analysis</span>
+                        <span class="tech-tag">Drug Development</span>
+                        <span class="tech-tag">Structural Biology</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills section" id="skills">
+        <div class="container">
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3 class="skill-category-title">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="16 18 22 12 16 6"/>
+                            <polyline points="8 6 2 12 8 18"/>
+                        </svg>
+                        Programming Languages
+                    </h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python (Pandas, NumPy, SciPy, Sklearn, Matplotlib, Plotly, TensorFlow, PyTorch, Flask)</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">R</span>
+                        <span class="skill-tag">Bash</span>
+                        <span class="skill-tag">C++</span>
+                        <span class="skill-tag">C</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3 class="skill-category-title">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                            <line x1="9" y1="3" x2="9" y2="21"/>
+                        </svg>
+                        Technologies
+                    </h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">OpenCV</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">GitHub</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">NoSQL</span>
+                        <span class="skill-tag">GNU/Linux</span>
+                        <span class="skill-tag">HTML</span>
+                        <span class="skill-tag">CSS</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3 class="skill-category-title">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 0 1 6.412 9m0 0l2.366 2.366M6.412 9L4.045 6.634"/>
+                            <circle cx="12" cy="12" r="3"/>
+                            <path d="M12 1v6m0 6v6m6-6h-6M1 12h6"/>
+                        </svg>
+                        Languages
+                    </h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">English (Fluent)</span>
+                        <span class="skill-tag">Ukrainian (Fluent)</span>
+                        <span class="skill-tag">Russian (Fluent)</span>
+                        <span class="skill-tag">Japanese (Beginner)</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3 class="skill-category-title">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                        Memberships
+                    </h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Japan Neuroscience Society</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section class="certifications section" id="certifications">
+        <div class="container">
+            <h2 class="section-title">Professional Certifications & Achievements</h2>
+
+            <!-- Certificates -->
+            <h3 class="cert-category-title">Certificates</h3>
+            <div class="certifications-grid-two-col">
+                <!-- Certificate Card 1 -->
+                <div class="certification-card">
+                    <div class="cert-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="8" r="7"/>
+                            <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/>
+                        </svg>
+                    </div>
+                    <div class="cert-content">
+                        <h3 class="cert-title">Professional Certificate in Data Engineering</h3>
+                        <p class="cert-issuer">Massachusetts Institute of Technology</p>
+                        <p class="cert-date">Issued: Feb 2023</p>
+                        <p class="cert-id"><a href="https://certificates.emeritus.org/f39bf3c9-447b-4810-8fdb-fff97fdd56ef#acc.whZlCpUb" target="_blank" style="color: var(--primary-color); text-decoration: none;">Credential ID: 68420632</a></p>
+                    </div>
+                </div>
+
+                <!-- Certificate Card 2 -->
+                <div class="certification-card">
+                    <div class="cert-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="8" r="7"/>
+                            <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/>
+                        </svg>
+                    </div>
+                    <div class="cert-content">
+                        <h3 class="cert-title">Statistics with Python Specialization</h3>
+                        <p class="cert-issuer">Coursera</p>
+                        <p class="cert-date">Issued: Jun 2022</p>
+                        <p class="cert-id"><a href="https://www.coursera.org/account/accomplishments/specialization/certificate/FA9QM46AAN2G" target="_blank" style="color: var(--primary-color); text-decoration: none;">Credential ID: FA9QM46AAN2G</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hackathons -->
+            <h3 class="cert-category-title">Hackathons</h3>
+            <div class="certifications-grid-two-col">
+                <!-- Hackathon Card 1 -->
+                <div class="certification-card">
+                    <div class="cert-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="8" r="7"/>
+                            <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/>
+                        </svg>
+                    </div>
+                    <div class="cert-content">
+                        <h3 class="cert-title">HACK SPF 2023 ML Winner (2nd Place)</h3>
+                        <p class="cert-issuer">Taras Shevchenko National University of Kyiv</p>
+                        <p class="cert-date">Issued: Apr 2023</p>
+                        <p class="cert-id">Machine Learning Competition</p>
+                    </div>
+                </div>
+
+                <!-- Hackathon Card 2 -->
+                <div class="certification-card">
+                    <div class="cert-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="8" r="7"/>
+                            <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/>
+                        </svg>
+                    </div>
+                    <div class="cert-content">
+                        <h3 class="cert-title">CSC Hackathon 2023 Finalist</h3>
+                        <p class="cert-issuer">Hackathon Expert</p>
+                        <p class="cert-date">Issued: Jul 2023</p>
+                        <p class="cert-id">Machine Learning Competition</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 Vladyslav Honcharuk. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="https://github.com/vladyslav-honcharuk" target="_blank">GitHub</a>
+                    <a href="https://linkedin.com/in/vladyslav-honcharuk" target="_blank">LinkedIn</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
