@@ -555,7 +555,7 @@ body {
    Projects Section
    ================================ */
 .projects {
-    background-color: var(--bg-secondary);
+    background-color: var(--bg-primary);
 }
 
 .projects-grid {
@@ -642,7 +642,7 @@ body {
    Skills Section
    ================================ */
 .skills {
-    background-color: var(--bg-primary);
+    background-color: var(--bg-secondary);
 }
 
 .skills-grid {
@@ -706,7 +706,7 @@ body {
    Contact Section
    ================================ */
 .contact {
-    background-color: var(--bg-secondary);
+    background-color: var(--bg-primary);
 }
 
 .contact-subtitle {
@@ -1055,7 +1055,7 @@ body {
    Publications Section
    ================================ */
 .publications {
-    background-color: var(--bg-primary);
+    background-color: var(--bg-secondary);
 }
 
 .publications-list {
@@ -1176,7 +1176,7 @@ body {
    Research & Teaching Section
    ================================ */
 .research {
-    background-color: var(--bg-secondary);
+    background-color: var(--bg-primary);
 }
 
 .research-grid {
@@ -1245,11 +1245,11 @@ body {
    Education & Experience Sections (Timeline)
    ================================ */
 .education {
-    background-color: var(--bg-primary);
+    background-color: var(--bg-secondary);
 }
 
 .experience {
-    background-color: var(--bg-secondary);
+    background-color: var(--bg-primary);
 }
 
 .timeline {
@@ -1355,7 +1355,7 @@ body {
    Certifications Section
    ================================ */
 .certifications {
-    background-color: var(--bg-secondary);
+    background-color: var(--bg-primary);
 }
 
 .cert-category-title {
@@ -1484,5 +1484,245 @@ body {
 
     .section {
         page-break-inside: avoid;
+    }
+}
+
+/* ================================
+   Research Carousel Section
+   ================================ */
+.research-carousel {
+    background: var(--bg-primary);
+    padding: var(--section-padding) 0;
+}
+
+.research-carousel .container {
+    width: 100%;
+}
+
+.carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-xl);
+}
+
+.carousel-slides {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    display: flex;
+}
+
+.carousel-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+}
+
+.carousel-slide.active {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: auto;
+    z-index: 2;
+}
+
+.carousel-slide.prev {
+    transform: translateX(-100%);
+}
+
+.slide-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: var(--bg-primary);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+}
+
+.slide-image {
+    width: 100%;
+    height: 80%;
+    object-fit: contain;
+    background: linear-gradient(135deg, var(--bg-tertiary) 0%, var(--bg-secondary) 100%);
+}
+
+.slide-info {
+    padding: 2rem;
+    background: var(--bg-primary);
+    border-top: 3px solid var(--primary-color);
+}
+
+.slide-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.slide-description {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* Navigation Arrows */
+.carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    transition: all var(--transition-normal);
+    box-shadow: var(--shadow-lg);
+}
+
+[data-theme="dark"] .carousel-arrow {
+    background: rgba(30, 41, 59, 0.9);
+}
+
+.carousel-arrow:hover {
+    background: var(--primary-color);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-arrow:hover svg {
+    stroke: white;
+}
+
+.carousel-arrow-left {
+    left: 20px;
+}
+
+.carousel-arrow-right {
+    right: 20px;
+}
+
+.carousel-arrow svg {
+    stroke: var(--text-primary);
+    transition: stroke var(--transition-normal);
+}
+
+/* Dot Indicators */
+.carousel-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    z-index: 10;
+}
+
+.carousel-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(99, 102, 241, 0.3);
+    border: 2px solid rgba(99, 102, 241, 0.6);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    padding: 0;
+}
+
+[data-theme="dark"] .carousel-dot {
+    background: rgba(129, 140, 248, 0.3);
+    border-color: rgba(129, 140, 248, 0.6);
+}
+
+.carousel-dot:hover {
+    transform: scale(1.2);
+    background: rgba(99, 102, 241, 0.5);
+    border-color: rgba(99, 102, 241, 0.9);
+}
+
+[data-theme="dark"] .carousel-dot:hover {
+    background: rgba(129, 140, 248, 0.5);
+    border-color: rgba(129, 140, 248, 0.9);
+}
+
+.carousel-dot.active {
+    width: 16px;
+    height: 16px;
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .carousel-slides {
+        height: 500px;
+    }
+
+    .carousel-arrow {
+        width: 40px;
+        height: 40px;
+    }
+
+    .carousel-arrow-left {
+        left: 10px;
+    }
+
+    .carousel-arrow-right {
+        right: 10px;
+    }
+
+    .slide-info {
+        padding: 1.5rem;
+    }
+
+    .slide-title {
+        font-size: 1.25rem;
+    }
+
+    .slide-description {
+        font-size: 0.9rem;
+    }
+
+    .carousel-dots {
+        bottom: 15px;
+        gap: 8px;
+    }
+
+    .carousel-dot {
+        width: 10px;
+        height: 10px;
+    }
+
+    .carousel-dot.active {
+        width: 14px;
+        height: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .carousel-slides {
+        height: 400px;
+    }
+
+    .slide-image {
+        height: 70%;
     }
 }

@@ -26,6 +26,9 @@
     <title>Vladyslav Honcharuk | Research Portfolio</title>
     <link rel="stylesheet" href="styles.css">
 
+    <!-- PDF.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+
     <!-- Schema.org Structured Data -->
     <script type="application/ld+json">
     {
@@ -82,6 +85,7 @@
             <a href="#" class="nav-logo">&lt;VladyslavHoncharuk/&gt;</a>
             <ul class="nav-menu" id="nav-menu">
                 <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="#research-carousel" class="nav-link">Highlights</a></li>
                 <li class="nav-item"><a href="#education" class="nav-link">Education</a></li>
                 <li class="nav-item"><a href="#experience" class="nav-link">Work</a></li>
                 <li class="nav-item"><a href="#publications" class="nav-link">Publications</a></li>
@@ -120,7 +124,7 @@
             <p class="hero-description fade-in">I enjoy solving complex problems with creative solutions (and a cup of coffee)</p>
             <div class="hero-buttons fade-in">
                 <a href="#publications" class="btn btn-primary">View Publications</a>
-                <a href="#research" class="btn btn-secondary">View Research Interesets</a>
+                <a href="#research-carousel" class="btn btn-secondary">View Research Highlights</a>
             </div>
         </div>
     </section>
@@ -162,6 +166,45 @@
                             </svg>
                         </a>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Carousel Section -->
+    <section class="research-carousel section" id="research-carousel">
+        <div class="container">
+            <h2 class="section-title">Research Highlights</h2>
+            <p class="section-subtitle">Explore my key research projects</p>
+
+            <div class="carousel-container">
+                <!-- Carousel Slides - Will be dynamically generated from PDF -->
+                <div class="carousel-slides"
+                     data-pdf-url="research-highlights.pdf"
+                     data-slide-info='[
+                         {"title": "Eye-tracking Analysis", "description": "Evaluating saliency models in motion with egocentric eye-tracking data"},
+                         {"title": "Eye-Tracking Analysis", "description": "Classifying schizophrenia with 88% AUROC using video-based Eye-Tracking"},
+                         {"title": "DeepSpaceDB v1", "description": "DeepSpaceDB: a spatial transcriptomics atlas for interactive in-depth analysis of tissues and tissue microenvironments"},
+                         {"title": "DeepSpaceDB v2", "description": "DeepSpaceDB: a standardized pipeline and viewer for 10x Xenium, Creating the largest single-cell spatial atlas"}
+                     ]'>
+                    <!-- Slides will be inserted here by JavaScript -->
+                </div>
+
+                <!-- Navigation Arrows -->
+                <button class="carousel-arrow carousel-arrow-left" aria-label="Previous slide">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="15 18 9 12 15 6"></polyline>
+                    </svg>
+                </button>
+                <button class="carousel-arrow carousel-arrow-right" aria-label="Next slide">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </button>
+
+                <!-- Dot Indicators - Will be dynamically generated -->
+                <div class="carousel-dots">
+                    <!-- Dots will be inserted here by JavaScript -->
                 </div>
             </div>
         </div>

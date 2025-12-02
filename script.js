@@ -321,3 +321,265 @@ window.addEventListener('load', () => {
     document.body.classList.remove('loading');
 });
 
+// ================================
+// PDF Slides Generator
+// ================================
+
+async function generateSlidesFromPDF() {
+    const carouselSlides = document.querySelector('.carousel-slides');
+    if (!carouselSlides) return;
+
+    const pdfUrl = carouselSlides.getAttribute('data-pdf-url');
+    if (!pdfUrl) return;
+
+    const slideInfoAttr = carouselSlides.getAttribute('data-slide-info');
+    const slideInfo = slideInfoAttr ? JSON.parse(slideInfoAttr) : [];
+
+    // Configure PDF.js worker
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+    const slides = [];
+    const dotsContainer = document.querySelector('.carousel-dots');
+
+    try {
+        // Show loading message
+        carouselSlides.innerHTML = `
+            <div class="carousel-slide active">
+                <div class="slide-content">
+                    <div style="display: flex; align-items: center; justify-content: center; height: 100%; color: var(--text-secondary); text-align: center; padding: 2rem;">
+                        <div>
+                            <h3>Loading PDF...</h3>
+                            <p>Please wait while we load your research slides.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        // Load the PDF with CORS mode
+        const loadingTask = pdfjsLib.getDocument({
+            url: pdfUrl,
+            withCredentials: false
+        });
+        const pdf = await loadingTask.promise;
+        const numPages = pdf.numPages;
+
+        // Generate a slide for each page
+        for (let pageNum = 1; pageNum <= numPages; pageNum++) {
+            const page = await pdf.getPage(pageNum);
+            const viewport = page.getViewport({ scale: 2.0 });
+
+            // Create canvas for rendering
+            const canvas = document.createElement('canvas');
+            const context = canvas.getContext('2d');
+            canvas.width = viewport.width;
+            canvas.height = viewport.height;
+
+            // Render PDF page to canvas
+            await page.render({
+                canvasContext: context,
+                viewport: viewport
+            }).promise;
+
+            // Convert canvas to image data URL
+            const imageDataUrl = canvas.toDataURL('image/png');
+
+            // Get slide info for this page (if provided)
+            const info = slideInfo[pageNum - 1] || {
+                title: `Research Highlight ${pageNum}`,
+                description: `Page ${pageNum} of ${numPages}`
+            };
+
+            // Create slide HTML
+            const slideHTML = `
+                <div class="carousel-slide ${pageNum === 1 ? 'active' : ''}">
+                    <div class="slide-content">
+                        <img src="${imageDataUrl}" alt="${info.title}" class="slide-image">
+                        <div class="slide-info">
+                            <h3 class="slide-title">${info.title}</h3>
+                            <p class="slide-description">${info.description}</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            slides.push(slideHTML);
+
+            // Create dot indicator
+            const dot = document.createElement('button');
+            dot.className = `carousel-dot ${pageNum === 1 ? 'active' : ''}`;
+            dot.setAttribute('data-slide', pageNum - 1);
+            dot.setAttribute('aria-label', `Go to slide ${pageNum}`);
+            dotsContainer.appendChild(dot);
+        }
+
+        // Insert all slides at once
+        carouselSlides.innerHTML = slides.join('');
+
+    } catch (error) {
+        console.error('Error loading PDF:', error);
+
+        // Show error message in carousel
+        carouselSlides.innerHTML = `
+            <div class="carousel-slide active">
+                <div class="slide-content">
+                    <div style="display: flex; align-items: center; justify-content: center; height: 100%; color: var(--text-secondary); text-align: center; padding: 2rem;">
+                        <div>
+                            <h3>Error loading PDF</h3>
+                            <p>Please check the PDF URL and try again.</p>
+                            <p style="font-size: 0.875rem; margin-top: 1rem;">Error: ${error.message}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+    }
+}
+
+// Initialize PDF slides before carousel
+(async function() {
+    await generateSlidesFromPDF();
+
+    // Now initialize the carousel after slides are generated
+    if (document.querySelector('.carousel-slide')) {
+        window.carouselInstance = new ResearchCarousel();
+    }
+})();
+
+// ================================
+// Research Carousel Functionality
+// ================================
+
+class ResearchCarousel {
+    constructor() {
+        this.slides = document.querySelectorAll('.carousel-slide');
+        this.dots = document.querySelectorAll('.carousel-dot');
+        this.prevBtn = document.querySelector('.carousel-arrow-left');
+        this.nextBtn = document.querySelector('.carousel-arrow-right');
+        this.currentSlide = 0;
+        this.autoPlayInterval = null;
+        this.autoPlayDelay = 10000; // 10 seconds after last hover
+        this.lastHoverTime = Date.now();
+
+        this.init();
+    }
+
+    init() {
+        if (!this.slides.length) return;
+
+        // Set up event listeners
+        this.prevBtn.addEventListener('click', () => {
+            this.prevSlide();
+            this.handleUserInteraction();
+        });
+        this.nextBtn.addEventListener('click', () => {
+            this.nextSlide();
+            this.handleUserInteraction();
+        });
+
+        // Dot navigation
+        this.dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                this.goToSlide(index);
+                this.handleUserInteraction();
+            });
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                this.prevSlide();
+                this.handleUserInteraction();
+            }
+            if (e.key === 'ArrowRight') {
+                this.nextSlide();
+                this.handleUserInteraction();
+            }
+        });
+
+        // Touch/swipe support
+        this.setupTouchSupport();
+
+        // Track hover on carousel
+        const carousel = document.querySelector('.carousel-container');
+        if (carousel) {
+            carousel.addEventListener('mouseenter', () => this.handleUserInteraction());
+            carousel.addEventListener('mousemove', () => this.handleUserInteraction());
+        }
+
+        // Start auto-advance check
+        this.startAutoAdvance();
+    }
+
+    handleUserInteraction() {
+        // Update last hover time whenever user interacts
+        this.lastHoverTime = Date.now();
+    }
+
+    startAutoAdvance() {
+        // Check every second if it's time to advance
+        setInterval(() => {
+            const timeSinceLastHover = Date.now() - this.lastHoverTime;
+            if (timeSinceLastHover >= this.autoPlayDelay) {
+                this.nextSlide();
+                this.lastHoverTime = Date.now(); // Reset timer after auto-advance
+            }
+        }, 1000);
+    }
+
+    goToSlide(index) {
+        // Remove active class from current slide and dot
+        this.slides[this.currentSlide].classList.remove('active');
+        this.dots[this.currentSlide].classList.remove('active');
+
+        // Update current slide
+        this.currentSlide = index;
+
+        // Add active class to new slide and dot
+        this.slides[this.currentSlide].classList.add('active');
+        this.dots[this.currentSlide].classList.add('active');
+    }
+
+    nextSlide() {
+        const nextIndex = (this.currentSlide + 1) % this.slides.length;
+        this.goToSlide(nextIndex);
+    }
+
+    prevSlide() {
+        const prevIndex = (this.currentSlide - 1 + this.slides.length) % this.slides.length;
+        this.goToSlide(prevIndex);
+    }
+
+    setupTouchSupport() {
+        const carousel = document.querySelector('.carousel-slides');
+        if (!carousel) return;
+
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        carousel.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        carousel.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            this.handleSwipe();
+            this.handleUserInteraction();
+        });
+
+        const handleSwipe = () => {
+            const swipeThreshold = 50;
+            const diff = touchStartX - touchEndX;
+
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    this.nextSlide();
+                } else {
+                    this.prevSlide();
+                }
+            }
+        };
+
+        this.handleSwipe = handleSwipe;
+    }
+}
