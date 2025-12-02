@@ -1558,6 +1558,7 @@ body {
 
 .slide-info {
     padding: 2rem;
+    padding-bottom: 4rem;
     background: var(--bg-primary);
     border-top: 3px solid var(--primary-color);
 }
